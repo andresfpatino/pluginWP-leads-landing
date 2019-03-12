@@ -21,7 +21,9 @@ function permalink_landing() {
 function display_landing() {
     if ($query_var = get_query_var('leads-cliente-x')) {
 ?>  <div class="principal contenedor">
-        <main class="contenido">               
+        <main class="contenido">  
+            <img src="<?php echo esc_html(get_option('logo')); ?>" width="150">  
+            <p><?php echo esc_html(get_option('intro_txt')); ?></p>           
             <form class="contacto" method="POST">
                 <div class="campo">
                     <input type="text" name="nombre" placeholder="Nombres" required>
@@ -36,7 +38,7 @@ function display_landing() {
                     <input type="tel" name="telefono" placeholder="Teléfono" required>
                 </div>
                 <input type="submit" name="enviar" class="button" value="Solicitar información">
-                <input type="hidden" name="oculto" value="1">
+                <input type="hidden" name="oculto" value="1">   
             </form>
         </main>
     </div>
@@ -69,14 +71,8 @@ function guardar_BD(){
                 '%s',
                 '%s'
             );
-
-            $wpdb->insert($tabla, $datos, $formato);
-
-            // redirección luego de enviar
-            // $page_url = get_site_url();
-            // wp_redirect($page_url . '/gracias-cliente-x');
-            exit;          
+            $wpdb->insert($tabla, $datos, $formato);   
         }
-
+        echo "Gracias " . $nombre . ", el formulario ha sido enviado correctamente";
     endif;
 } add_action('init' , 'guardar_BD');
