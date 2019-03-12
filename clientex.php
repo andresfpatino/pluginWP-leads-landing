@@ -8,13 +8,11 @@
  * Author URI:  https://felipepatino.com
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: leads_clienteX
  */
 
 
 defined('ABSPATH') or die("Bye bye");
 define('RUTA',plugin_dir_path(__FILE__));
-
 
 
 /*
@@ -61,6 +59,8 @@ register_deactivation_hook(__FILE__, 'remove_table' );
 // Add menu page
 include(RUTA.'/includes/opciones.php');
 
+
+require_once(RUTA.'/includes/landing.php');
 
 
 
