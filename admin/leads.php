@@ -5,6 +5,11 @@ function leads_func(){
 	?>
 	<div class="wrap">
 		<h1>Datos de sus usuarios </h1>
+		<hr>
+		<p>Para ver la landing visite el siguiente 
+			<a href="<?php echo get_home_url(); ?>/leads-cliente-x" target="_blank">link</a>. Para la correcta visualización por favor actualice los enlaces permanentes.
+		</p>
+		<br>
 		<table class="wp-list-table widefat striped">
 			<thead>
 				<tr>

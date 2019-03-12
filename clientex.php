@@ -59,8 +59,8 @@ register_deactivation_hook(__FILE__, 'remove_table' );
 // Add menu page
 include(RUTA.'/includes/opciones.php');
 
-
-require_once(RUTA.'/includes/landing.php');
+// Logica de la landing
+require_once(RUTA.'/public/landing.php');
 
 
 
