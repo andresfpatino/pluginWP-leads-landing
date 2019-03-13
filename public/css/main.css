@@ -1,27 +1,21 @@
-body {
-	background: #fefefe;
-}
-
-#header {
-    background: #fff;
-}
-
-.main-menu {
-    padding-bottom: 20px;
-    padding-top: 20px;
-}
-
-.pt-100 {
-    padding-top: 100px;
-}
-
-.pb-100{
-padding-bottom:100px;
-}
-
-
-.principal {
-    width: 100%;
-    margin: 0 auto;
-    background: #18a7cc;
-}
+body{font-family:'Raleway',sans-serif}
+h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;margin:0}
+#header{position:fixed;left:0;top:0;right:0;-webkit-transition:all .5s;-o-transition:all .5s;transition:all .5s;z-index:997;background:#fff;-webkit-box-shadow:-21.213px 21.213px 30px 0 rgba(158,158,158,0.3);box-shadow:-21.213px 21.213px 30px 0 rgba(158,158,158,0.3)}
+.main-menu{padding-bottom:20px;padding-top:20px}
+.pt-100{padding-top:100px}
+.title{margin-bottom:25px}
+.principal{width:100%;margin:0 auto;background:url(../img/bg.jpg);background-size:100%;background-position:center;background-repeat:no-repeat}
+.info{max-width:80%;margin:3em auto 1em}
+form.contacto .form-row{margin:10px 0}
+.button{background:#35bfdc;border:none;color:#fff;padding:10px 15px;border-radius:5px;font-weight:700;cursor:pointer;width:100%}
+.button:hover{background:#13cf73}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{background-color:#07d374}
+form.contacto a{color:#07d374;text-decoration:underline}
+form.contacto p{font-size:15px}
+.custom-control.custom-checkbox{margin:12px 0}
+.alert-success{color:#22ca78;background-color:transparent;border-color:#22ca78;margin-top:10px}
+.custom-control-label{font-size:14px}
+footer{background:#ececec;padding:7px;font-size:12px; margin-top: 5em}
+footer p {margin: 0}
+footer a{color:#0ad27a}
+footer a:hover{color:#0ad27a}
