@@ -1,0 +1,27 @@
+body {
+	background: #fefefe;
+}
+
+#header {
+    background: #fff;
+}
+
+.main-menu {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.pt-100 {
+    padding-top: 100px;
+}
+
+.pb-100{
+padding-bottom:100px;
+}
+
+
+.principal {
+    width: 100%;
+    margin: 0 auto;
+    background: #18a7cc;
+}

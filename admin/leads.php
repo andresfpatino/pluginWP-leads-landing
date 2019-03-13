@@ -18,6 +18,7 @@ function leads_func(){
 					<th class="manage-column">Apellidos</th>
 					<th class="manage-column">Correo</th>
 					<th class="manage-column">Teléfono</th>
+					<th class="manage-column">Fecha de registro</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -35,6 +36,7 @@ function leads_func(){
 					<td> <?php echo $registro['apellido'] ?> </td>
 					<td> <?php echo $registro['correo'] ?> </td>
 					<td> <?php echo $registro['telefono'] ?> </td>
+					<td> <?php echo $registro['fecha'] ?> </td>
 				<tr>
 
 				<?php } ?>
