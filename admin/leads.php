@@ -1,5 +1,4 @@
 <?php 
-
 // Imprime la información de las reservas
 function leads_func(){	
 	?>
@@ -45,9 +44,4 @@ function leads_func(){
 		</table>
 	</div>
 	<?php
-
 }
-
-
-
-

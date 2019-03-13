@@ -33,5 +33,4 @@ add_action( 'admin_menu', 'menu_administrador' );
 // Llamar el registro de las opciones en el submenu page settings
 add_action('admin_menu', 'settings_leads');
 
-
 ?>

@@ -33,6 +33,7 @@ function create_table() {
             apellido varchar(50) NOT NULL,
             correo  varchar(50) DEFAULT '' NOT NULL,
             telefono varchar(10) NOT NULL,
+            fecha varchar(50) NOT NULL,
             PRIMARY KEY (id)
         ) $charset_collate; "
     );
@@ -46,10 +47,15 @@ register_activation_hook( __FILE__, 'create_table' );
 */
 function remove_table(){
     global $wpdb;
-    //el nombre de la tabla, utilizamos el prefijo de wordpress
     $tabla = $wpdb->prefix . 'leads';
     $sql = "DROP table IF EXISTS $tabla";
 	$wpdb->query($sql);
+    // Elimina las opciones creadas
+    delete_option( 'logo' );
+    delete_option( 'titulo' );
+    delete_option( 'intro_txt' );
+    delete_option( 'thanks_page' );
+    delete_option( 'link_politicas' );
 }
 // Hook que se ejecuta al desactivar el plugin
 register_deactivation_hook(__FILE__, 'remove_table' );
@@ -61,15 +67,3 @@ include(RUTA.'/includes/opciones.php');
 
 // Logica de la landing
 require_once(RUTA.'/public/landing.php');
-
-
-
-
-
-
-
-
-
-
-
-
