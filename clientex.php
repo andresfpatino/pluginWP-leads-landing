@@ -32,7 +32,7 @@ function create_table() {
             nombre varchar(50) NOT NULL,
             apellido varchar(50) NOT NULL,
             correo  varchar(50) DEFAULT '' NOT NULL,
-            telefono varchar(10) NOT NULL,
+            telefono varchar(50) NOT NULL,
             fecha varchar(50) NOT NULL,
             PRIMARY KEY (id)
         ) $charset_collate; "
