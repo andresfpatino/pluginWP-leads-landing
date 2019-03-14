@@ -23,25 +23,60 @@ function leads_func(){
 			<tbody>
 				<?php
 					global $wpdb;
-					$tabla = $wpdb->prefix . 'leads';
-					$registros = $wpdb->get_results("SELECT * FROM $tabla", ARRAY_A);
 
-					foreach ($registros as $registro) {
+					$tabla = $wpdb->prefix . 'leads';
+
+					$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
+					$limit = 10; // limite de paginación
+					$offset = ( $pagenum - 1 ) * $limit;
+					$total = $wpdb->get_var( "SELECT COUNT('id') FROM $tabla" );
+					$num_of_pages = ceil( $total / $limit );
+
+					$entries = $wpdb->get_results( "SELECT * FROM $tabla LIMIT $offset, $limit" );
+
+					foreach ($entries as $entry) {
 				?>
 
 				<tr>
-					<td> <?php echo $registro['id'] ?> </td>
-					<td> <?php echo $registro['nombre'] ?> </td>
-					<td> <?php echo $registro['apellido'] ?> </td>
-					<td> <?php echo $registro['correo'] ?> </td>
-					<td> <?php echo $registro['telefono'] ?> </td>
-					<td> <?php echo $registro['fecha'] ?> </td>
+					<td> <?php echo $entry->id; ?> </td>
+					<td> <?php echo $entry->nombre; ?> </td>
+					<td> <?php echo $entry->apellido; ?> </td>
+					<td> <?php echo $entry->correo; ?> </td>
+					<td> <?php echo $entry->telefono; ?> </td>
+					<td> <?php echo $entry->fecha; ?> </td>
 				<tr>
 
 				<?php } ?>
 
 			</tbody>
 		</table>
+
+		<!-- paginación -->
+		<?php 
+
+			$page_links = paginate_links( array(
+			    'base' => add_query_arg( 'pagenum', '%#%' ),
+			    'format' => '',
+			    'prev_text' => __( '&laquo;', 'text-domain' ),
+			    'next_text' => __( '&raquo;', 'text-domain' ),
+			    'total' => $num_of_pages,
+			    'current' => $pagenum
+			) );
+
+			if ( $page_links ) {
+			    echo '
+			    	<div class="tablenav bottom">
+			    		<div class="tablenav-pages" style="margin: 1em 0">
+			    			<span class="pagination-links">
+			    				<span class="tablenav-pages-navspan">' . $page_links . '</span>
+			    			</span>
+			    		</div>
+			    	</div>
+			    ';
+			}
+
+		?>
 	</div>
+
 	<?php
 }
