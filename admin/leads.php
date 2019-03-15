@@ -18,6 +18,7 @@ function leads_func(){
 					<th class="manage-column">Correo</th>
 					<th class="manage-column">Teléfono</th>
 					<th class="manage-column">Fecha de registro</th>
+					<th class="manage-column">Eliminar</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,6 +45,9 @@ function leads_func(){
 					<td> <?php echo $entry->correo; ?> </td>
 					<td> <?php echo $entry->telefono; ?> </td>
 					<td> <?php echo $entry->fecha; ?> </td>
+					<td>
+						<a href="#" class="borrar_registro" data-registro="<?php echo $entry->id; ?>"> <span class="dashicons dashicons-trash"></span></a>
+					</td>
 				<tr>
 
 				<?php } ?>

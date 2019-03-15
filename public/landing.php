@@ -152,3 +152,36 @@
             } 
         endif;
     } add_action('init' , 'guardar_BD');
+
+
+// Elimina un registro
+function elimina_registro(){
+    if(isset($_POST['tipo'])){
+        if ($_POST['tipo'] == 'eliminar') {
+            global $wpdb;
+            $tabla = $wpdb->prefix . 'leads';
+
+            $id_registro = $entry->id;
+            $resultado = $wpdb->delete($tabla, array('id' => $id_registro), array('%d'));
+            
+            if($resultado == 1){
+                $respuesta = array(
+                    'respuesta' => 1,
+                    'id' => $id_registro
+                );
+            } else{
+                $respuesta = array(
+                    'respuesta' => 'error',
+                    'id' => $id_registro
+                );
+            }
+
+        }
+
+
+    }
+    
+    //die();
+    die(json_encode($respuesta));
+}
+add_action('wp_ajax_eliminar','elimina_registro');
