@@ -4,11 +4,14 @@ function leads_func(){
 	?>
 	<div class="wrap">
 		<h1>Datos de sus usuarios </h1>
-		<hr>
-		<p>Para ver la landing visite el siguiente 
-			<a href="<?php echo get_home_url(); ?>/leads-cliente-x" target="_blank">link</a>. Para la correcta visualización por favor actualice los enlaces permanentes.
-		</p>
-		<br>
+
+		<div class="notice notice-warning">
+			<p> Para ver la landing visite el siguiente 
+				<a href="<?php echo get_home_url(); ?>/leads-cliente-x" target="_blank">link</a>.
+				Si tiene problemas con la visualización por favor actualice los <a href="<?php echo get_admin_url(); ?>options-permalink.php">enlaces permanentes.</a>
+			</p>
+		</div>
+
 		<table class="wp-list-table widefat striped">
 			<thead>
 				<tr>
@@ -28,7 +31,7 @@ function leads_func(){
 					$tabla = $wpdb->prefix . 'leads';
 
 					$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-					$limit = 10; // limite de paginación
+					$limit = 11; // limite de paginación
 					$offset = ( $pagenum - 1 ) * $limit;
 					$total = $wpdb->get_var( "SELECT COUNT('id') FROM $tabla" );
 					$num_of_pages = ceil( $total / $limit );
@@ -46,7 +49,7 @@ function leads_func(){
 					<td> <?php echo $entry->telefono; ?> </td>
 					<td> <?php echo $entry->fecha; ?> </td>
 					<td>
-						<a href="#" class="borrar_registro" data-registro="<?php echo $entry->id; ?>"> <span class="dashicons dashicons-trash"></span></a>
+						<a href="#" class="borrar_registro" data-registro="<?php echo $entry->id; ?>"> <span class="dashicons dashicons-trash"></span> Eliminar</a>
 					</td>
 				<tr>
 

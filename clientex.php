@@ -72,8 +72,12 @@ require_once(RUTA.'/public/landing.php');
 // Registra cargar de scripts en el admin
 function admin_scripts() {
     wp_enqueue_style('sweetalert', plugin_dir_url( __FILE__ ).'admin/css/sweetalert.css');    
+    wp_enqueue_style('pagination', plugin_dir_url( __FILE__ ).'admin/css/pagination.css'); 
     wp_enqueue_script('sweetalertjs', plugin_dir_url( __FILE__ ).'admin/js/sweetalert.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('adminjs', plugin_dir_url( __FILE__ ).'admin/js/admin-ajax.js', array('jquery'), '1.0', true);
+    
+    wp_enqueue_media();
+    wp_enqueue_script('media-upload', plugin_dir_url( __FILE__ ).'admin/js/media-upload.js', array('jquery'), '1.0', true);
 
     // pasar la url de WP ajax al admin-ajax.js
     wp_localize_script(

@@ -48,8 +48,9 @@ function settings(){ ?>
 					<td><input size="80" type="text" name="thanks_page" value="<?php echo esc_attr(get_option('thanks_page')); ?>" placeholder="Ingrese el texto"></td>
 				</tr>
 			</table>
+			
+			<?php submit_button(); ?>	
 
-			<?php submit_button(); ?>
 		</form>
 	</div>
 	<?php	

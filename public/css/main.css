@@ -4,18 +4,23 @@ h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;margin:0}
 .main-menu{padding-bottom:20px;padding-top:20px}
 .pt-100{padding-top:100px}
 .title{margin-bottom:25px}
-.principal{width:100%;margin:0 auto;background:url(../img/bg.jpg);background-size:100%;background-position:center;background-repeat:no-repeat}
+.principal{width:100%;margin:0 auto;background:rgba(33,202,114,1);background:-moz-linear-gradient(top,rgba(33,202,114,1) 0%,rgba(1,191,225,1) 100%);background:-webkit-gradient(left top,left bottom,color-stop(0%,rgba(33,202,114,1)),color-stop(100%,rgba(1,191,225,1)));background:-webkit-linear-gradient(top,rgba(33,202,114,1) 0%,rgba(1,191,225,1) 100%);background:-o-linear-gradient(top,rgba(33,202,114,1) 0%,rgba(1,191,225,1) 100%);background:-ms-linear-gradient(top,rgba(33,202,114,1) 0%,rgba(1,191,225,1) 100%);background:linear-gradient(to bottom,rgba(33,202,114,1) 0%,rgba(1,191,225,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#21ca72',endColorstr='#01bfe1',GradientType=0)}
 .info{max-width:80%;margin:3em auto 1em}
 form.contacto .form-row{margin:10px 0}
-.button{background:#35bfdc;border:none;color:#fff;padding:10px 15px;border-radius:5px;font-weight:700;cursor:pointer;width:100%}
-.button:hover{background:#13cf73}
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{background-color:#07d374}
-form.contacto a{color:#07d374;text-decoration:underline}
+.button{background:#212529;border:none;color:#fff;padding:10px 15px;border-radius:5px;font-weight:700;cursor:pointer;width:100%}
+.button:hover{background:#414244}
+.form-control { margin-bottom: 10px}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{background-color:#212529}
+form.contacto a{color:#212529;text-decoration:underline}
 form.contacto p{font-size:15px}
 .custom-control.custom-checkbox{margin:12px 0}
-.alert-success{color:#22ca78;background-color:transparent;border-color:#22ca78;margin-top:10px}
+.alert-success{background:#eb5d0b;color:#fff;border-color:#eb5d0b;margin-top:10px}
 .custom-control-label{font-size:14px}
-footer{background:#ececec;padding:7px;font-size:12px; margin-top: 5em}
-footer p {margin: 0}
+footer{background:#ececec;padding:7px;font-size:12px;margin-top:5em}
+footer p{margin:0}
 footer a{color:#0ad27a}
 footer a:hover{color:#0ad27a}
+@media (max-width: 767px){
+	.head {justify-content: center;}
+	footer {text-align: center;}
+}

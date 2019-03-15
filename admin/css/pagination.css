@@ -1,0 +1,25 @@
+
+.page-numbers {
+    display: inline-block;
+    min-width: 17px;
+    border: 1px solid #ccc;
+    padding: 3px 5px 7px;
+    background: #e5e5e5;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 400;
+    text-align: center;
+        height: 16px;
+    border-color: #ddd;
+    background: #f7f7f7;
+    color: #a0a5aa;
+    text-decoration: none;
+}
+
+.prev.page-numbers,
+.next.page-numbers,
+.page-numbers.current {
+    background: #e5e5e5;
+    color: #2a9fcf;
+    border: 1px solid #ccc;
+}

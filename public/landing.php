@@ -36,10 +36,16 @@
             <body>
             <header id="header">
                 <div class="container main-menu">
-                    <div class="row align-items-center justify-content-between d-flex">
-                        <div id="logo">
+                    <div class="row align-items-center d-flex head">
+                        <div id="logo">                            
                             <a href="<?php echo get_home_url(); ?>">
-                                <img src="<?php echo esc_html(get_option('logo')); ?>" width="150">
+                                <!-- si existe una imagen en settings -->
+                                <?php if (get_option('logo')) : ?>                                    
+                                    <img src="<?php echo esc_html(get_option('logo')); ?>" width="150">
+                                <!-- Si no, pone este por default -->
+                                <?php else: ?>                                    
+                                     <img src="http://placehold.it/150x30" width="150">
+                                <?php endif; ?>
                             </a>
                         </div>
                     </div>
@@ -47,29 +53,45 @@
             </header>
             <div class="principal pt-100">
                 <main class="container">  
-                    <div class="row align-items-center justify-content-between">
-                        <div class="col-lg-5 col-md-5">  
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-5 col-md-5 column-left">  
                            <img class="img-fluid" src="<?php echo $PATH ?>img/mockup.png" alt="">
                         </div>
 
                         <div class="col-lg-7 col-md-7">   
                             <div class="info">
-                            <h1 class="title"><?php echo esc_html(get_option('titulo')); ?></h1>
-                            <p><?php echo esc_html(get_option('intro_txt')); ?></p>           
+                                <!-- TÍTULO -->
+                                <!-- Si existe texto en settings -->
+                                <?php if (get_option('titulo')) : ?>                                    
+                                    <h1 class="title"><?php echo esc_html(get_option('titulo')); ?></h1>
+                                <!-- Si no, pone este por default -->
+                                <?php else: ?>                                    
+                                    <h1 class="title">Lorem ipsum</h1>
+                                <?php endif; ?>   
+
+                                <!-- INTRO TEXTO -->
+                                 <!-- Si existe texto en settings -->
+                                <?php if (get_option('intro_txt')) : ?>                                    
+                                    <p><?php echo esc_html(get_option('intro_txt')); ?></p>  
+                                <?php else: ?>    
+                                 <!-- Si no, pone este por default -->                                
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla </p>  
+                                <?php endif; ?>  
+
                                 <form class="contacto" method="POST">
-                                    <div class="form-row">
-                                        <div class="col">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-lg-6">
                                             <input class="form-control" type="text" name="nombre" placeholder="Nombres" required>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-xs-12 col-sm-12 col-lg-6">
                                             <input class="form-control" type="text" name="apellido" placeholder="Apellidos" required>                        
                                         </div>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="col">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-lg-6">
                                             <input class="form-control" type="emai" name="correo" placeholder="Correo" required>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-xs-12 col-sm-12 col-lg-6">
                                             <input class="form-control" type="tel" name="telefono" placeholder="Teléfono" required>
                                         </div>
                                     </div>
@@ -77,29 +99,45 @@
                                         <?php $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"); ?>
                                         <input type="hidden" name="fecha" value="<?php echo date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ; ?>">
                                     </div>   
-                                    <div class="form-row">  
-                                        <div class="col">                               
+                                    <div class="row">  
+                                        <div class="col-xs-12 col-sm-12 col-lg-6">                    
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="politicas" required checked>
-                                                <label class="custom-control-label" for="politicas"> Acepto las <a target="_blank" href="<?php echo esc_html(get_option('link_politicas')); ?>">políticas de privacidad</a> </label>
+                                                <label class="custom-control-label" for="politicas"> Acepto las 
+                                                    <a target="_blank" href="                                                   
+                                                       <?php if (get_option('link_politicas')) : ?>                                    
+                                                            <?php echo esc_html(get_option('link_politicas')); ?>                                                   
+                                                       <?php else: ?> # <?php endif; ?> ">políticas de privacidad</a> 
+                                                </label>
                                             </div>
                                         </div>
-                                        <div class="col">
+                                        <div class="col-xs-12 col-sm-12 col-lg-6">
                                             <input type="submit" name="enviar" class="button" value="Solicitar información">
                                         </div>
                                     </div>
                                     <input type="hidden" name="oculto" value="1"> 
+
                                     <!-- Mensaje gracias-->
                                     <?php if (isset($_POST['enviar']) && $_POST['oculto'] == "1"){ 
                                         $nombre = sanitize_text_field( $_POST['nombre']);
-                                        $mensaje = esc_html(get_option('thanks_page')); ?>
-                                        <div class="form-row">
-                                            <div class="alert alert-success fade show" role="alert">
-                                              <strong><?php echo $nombre . ', '?></strong> <?php echo $mensaje ?>
+                                        # Si existe en settings
+                                        $mensaje = esc_html(get_option('thanks_page'));
+                                        if (get_option('thanks_page')) : 
+                                            $mensaje = esc_html(get_option('thanks_page'));
+                                        # Si no, pone este por default
+                                        else:      
+                                            $mensaje = 'Lorem ipsum dolor isset';           
+                                        endif; ?>  
+                                        <div class="row">
+                                            <div class="col-sm-12 ">
+                                                <div class="alert alert-success fade show" role="alert">
+                                                  <strong><?php echo $nombre . ', '?></strong> <?php echo $mensaje ?>
+                                                </div>
                                             </div>
                                         </div>
                                     <?php }  ?>
                                 </form>
+
                             </div>                   
                         </div>  
                     </div>
@@ -161,8 +199,8 @@ function elimina_registro(){
             global $wpdb;
             $tabla = $wpdb->prefix . 'leads';
 
-            $id_registro = $entry->id;
-            $resultado = $wpdb->delete($tabla, array('id' => $id_registro), array('%d'));
+            $id_registro = $_POST['id'];
+            $resultado = $wpdb->delete($tabla, array('id' => $id_registro));
             
             if($resultado == 1){
                 $respuesta = array(
@@ -171,17 +209,12 @@ function elimina_registro(){
                 );
             } else{
                 $respuesta = array(
-                    'respuesta' => 'error',
-                    'id' => $id_registro
+                    'respuesta' => 'error'
                 );
             }
-
         }
-
-
-    }
-    
+    } 
     //die();
-    die(json_encode($respuesta));
-}
-add_action('wp_ajax_eliminar','elimina_registro');
+    die(json_decode($respuesta));
+
+} add_action('wp_ajax_elimina_registro','elimina_registro');
