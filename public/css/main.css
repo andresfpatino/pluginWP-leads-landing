@@ -9,7 +9,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;margin:0}
 form.contacto .form-row{margin:10px 0}
 .button{background:#212529;border:none;color:#fff;padding:10px 15px;border-radius:5px;font-weight:700;cursor:pointer;width:100%}
 .button:hover{background:#414244}
-.form-control { margin-bottom: 10px}
+.form-control{margin-bottom:10px}
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{background-color:#212529}
 form.contacto a{color:#212529;text-decoration:underline}
 form.contacto p{font-size:15px}
@@ -20,7 +20,13 @@ footer{background:#ececec;padding:7px;font-size:12px;margin-top:5em}
 footer p{margin:0}
 footer a{color:#0ad27a}
 footer a:hover{color:#0ad27a}
-@media (max-width: 767px){
-	.head {justify-content: center;}
-	footer {text-align: center;}
+@media (max-width: 767px) {
+.head{justify-content:center}
+footer{text-align:center}
+}
+#rocket{width:400px;margin:0 auto;display:block;-webkit-animation:rocket 9s linear infinite;-moz-animation:rocket 9s linear infinite;-ms-animation:rocket 9s linear infinite;-o-animation:rocket 9s linear infinite;animation:rocket 9s linear infinite}
+@keyframes rocket {
+0%{-o-transform:translate(0px,50px) rotate(0deg);transform:translate(0px,50px) rotate(0deg);-webkit-transform:translate(0px,50px) rotate(0deg);-moz-transform:translate(0px,50px) rotate(0deg)}
+50%{-o-transform:translate(0px,0px) rotate(-5deg);transform:translate(0px,0px) rotate(-5deg);-webkit-transform:translate(0px,0px) rotate(-5deg);-moz-transform:translate(0px,0px) rotate(-5deg)}
+100%{-o-transform:translate(0px,50px) rotate(0deg);transform:translate(0px,50px) rotate(0deg);-webkit-transform:translate(0px,50px) rotate(0deg);-moz-transform:translate(0px,50px) rotate(0deg)}
 }

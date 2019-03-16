@@ -30,8 +30,10 @@ $(document).ready(function(){
 						$("[data-registro='"+ resultado +"']").parent().parent().remove();
 						swal({
 							title: "Eliminado",
-							text: "El registro se ha eliminado",
-							type: "success"
+							text: "El registro se ha eliminado correctamente.",
+							type: "success",
+							showConfirmButton: false,
+							timer: 2500
 						});					
 					}
 				});

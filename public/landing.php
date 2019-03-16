@@ -55,7 +55,7 @@ function display_landing() {
             <main class="container">  
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-5 col-md-5 column-left">  
-                       <img class="img-fluid" src="<?php echo $PATH ?>img/mockup.png" alt="">
+                       <img class="img-fluid" id="rocket" src="<?php echo $PATH ?>img/mockup.png" alt="">
                     </div>
 
                     <div class="col-lg-7 col-md-7">   
