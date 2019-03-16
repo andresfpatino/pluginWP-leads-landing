@@ -1,5 +1,6 @@
 <?php 
-// Imprime la información de las reservas
+
+// Imprime la información de los registros
 function leads_func(){	
 	?>
 	<div class="wrap">
@@ -87,3 +88,32 @@ function leads_func(){
 
 	<?php
 }
+
+
+// Elimina un registro
+function elimina_registro(){
+    if(isset($_POST['tipo'])){
+        if ($_POST['tipo'] == 'eliminar') {
+            global $wpdb;
+            $tabla = $wpdb->prefix . 'leads';
+
+            $id_registro = $_POST['id'];
+
+            $resultado = $wpdb->delete($tabla, array('id' => $id_registro));
+            
+            if($resultado == 1){
+                $respuesta = array(
+                    'respuesta' => 1,
+                    'id' => $id_registro
+                );
+                echo $id_registro;
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'error'
+                );
+            }
+        }
+    } 
+    die();
+
+} add_action('wp_ajax_elimina_registro','elimina_registro');

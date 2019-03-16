@@ -26,17 +26,13 @@ $(document).ready(function(){
 					},
 					url: url_eliminar.ajaxurl,
 					success: function(data){
-						var resultado = JSON.parse(data);
-						if (resultado.respuesta == 1 ) {
-							$("[data-registro='"+ resultado.id +"']").parent().parent().remove();
-							swal({
-							    title: "Eliminado",
-							    text: "La reserva se ha eliminado",
-							    type: "success"
-							});
-							console.log('registro eliminado');
-
-						}
+						var resultado = JSON.parse(data);				
+						$("[data-registro='"+ resultado +"']").parent().parent().remove();
+						swal({
+							title: "Eliminado",
+							text: "El registro se ha eliminado",
+							type: "success"
+						});					
 					}
 				});
 			}
