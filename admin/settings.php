@@ -26,8 +26,8 @@ function settings(){ ?>
 				<tr valign="top">
 					<th scope="row">Logo</th>
 					<td>
-						<input size="80" type="text" name="logo" value="<?php echo esc_attr(get_option('logo')); ?>" placeholder="Ingrese la URL"> <br>
-						<small> Por favor, ingrese la url de la imagen deseada de la biblioteca de medios <small>
+						<input size="53" type="text" name="logo" value="<?php echo esc_attr(get_option('logo')); ?>">
+						<button class="button upload-button">Seleccione una imagen</button>
 					</td>
 				</tr>
 
